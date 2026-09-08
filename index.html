@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lumexa CM — productos personalizados para regalos, empresas y ocasiones especiales.">
+<meta name="theme-color" content="#0a0d14">
+<title>LUMEXA CM | Catálogo de Productos Personalizados</title>
+<style>
+:root{
+  --bg:#07090d;--panel:#0e131c;--panel2:#151c28;--line:#273244;
+  --text:#fff;--muted:#aeb8c8;--blue:#2d75e8;--blue2:#6fa4ff;
+  --wa:#25d366;--shadow:0 20px 55px rgba(0,0,0,.35)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+img{display:block;max-width:100%}
+.container{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:100;background:rgba(7,9,13,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand img{width:52px;height:52px;object-fit:contain;background:#fff;border-radius:50%;padding:2px}
+.brand strong{display:block;letter-spacing:1.5px;font-size:19px}
+.brand small{display:block;color:var(--blue2);font-weight:700;letter-spacing:1px;font-size:8px}
+.menu{display:flex;gap:22px;color:var(--muted);font-size:14px}
+.menu a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 19px;border-radius:999px;background:var(--blue);font-weight:800;border:1px solid var(--blue);cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.secondary{background:transparent;border-color:var(--line)}
+.btn.secondary:hover{background:#fff;color:#080b10;border-color:#fff}
+.hero{min-height:650px;display:flex;align-items:center;position:relative;overflow:hidden;background:
+linear-gradient(90deg,rgba(4,6,10,.98) 0%,rgba(4,6,10,.82) 48%,rgba(4,6,10,.45) 100%),
+url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(45,117,232,.16);filter:blur(90px);right:-150px;top:-100px}
+.hero-inner{position:relative;padding:90px 0}
+.tag{display:inline-flex;padding:8px 13px;border:1px solid #356fc8;background:rgba(45,117,232,.12);color:#b8d2ff;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:18px}
+.hero h1{font-size:clamp(44px,7vw,82px);line-height:.98;max-width:850px;margin-bottom:22px;letter-spacing:-2px}
+.hero h1 span,.heading h2 span,.custom h2 span{color:var(--blue2)}
+.hero p{max-width:650px;color:#d1d8e4;font-size:18px;margin-bottom:28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:42px}
+.stat strong{font-size:25px;display:block}.stat span{font-size:12px;color:var(--muted)}
+section{padding:82px 0}
+.heading{text-align:center;margin-bottom:38px}
+.eyebrow{color:var(--blue2);font-size:12px;font-weight:900;letter-spacing:1.5px;margin-bottom:7px}
+.heading h2{font-size:clamp(31px,5vw,50px);line-height:1.08}
+.heading p{max-width:700px;color:var(--muted);margin:12px auto}
+.categories{background:var(--panel)}
+.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cat{height:250px;position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);cursor:pointer}
+.cat img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.cat:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,rgba(0,0,0,.9))}
+.cat:hover img{transform:scale(1.06)}
+.cat h3,.cat span{position:absolute;left:19px;z-index:2}
+.cat h3{bottom:37px;font-size:22px}.cat span{bottom:16px;color:#c5cedc;font-size:12px}
+.toolbar{margin-bottom:28px}
+.search{max-width:720px;margin:0 auto 18px;display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--panel)}
+.search input{width:100%;padding:15px 19px;background:transparent;border:0;outline:0;color:#fff}
+.search button{padding:0 23px;border:0;background:var(--blue);color:#fff;font-weight:800;cursor:pointer}
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.filter{background:var(--panel);color:#fff;border:1px solid var(--line);padding:9px 15px;border-radius:999px;cursor:pointer}
+.filter.active,.filter:hover{background:var(--blue);border-color:var(--blue)}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.25s}
+.product:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#3b6eb8}
+.product-img{height:255px;position:relative;overflow:hidden;background:#1a2230}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.product:hover .product-img img{transform:scale(1.04)}
+.badge{position:absolute;top:12px;left:12px;background:var(--blue);padding:5px 9px;border-radius:999px;font-size:11px;font-weight:900;z-index:2}
+.info{padding:17px}.info h3{font-size:18px;margin-bottom:7px}
+.info p{color:var(--muted);font-size:13px;min-height:60px}
+.product-footer{margin-top:13px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.price{color:#a9c8ff;font-weight:900}.mini{border:1px solid #356fc8;color:#b9d2ff;padding:8px 11px;border-radius:999px;font-size:12px;font-weight:800}
+.empty{display:none;text-align:center;color:var(--muted);padding:35px}
+.custom{background:linear-gradient(90deg,rgba(4,7,12,.96),rgba(4,7,12,.85)),url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1800&q=85') center/cover}
+.custom .inner{text-align:center}.custom h2{font-size:clamp(40px,6vw,66px);margin-bottom:15px}.custom p{max-width:760px;margin:0 auto 25px;color:var(--muted);font-size:17px}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:27px 20px;text-align:center}
+.num{width:54px;height:54px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:900;font-size:19px;margin:0 auto 15px}
+.step p{color:var(--muted);font-size:13px;margin-top:7px}
+.contact{background:var(--panel)}
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:center}
+.contact h2{font-size:clamp(38px,5vw,60px);line-height:1.04}
+.contact p{color:var(--muted);margin:18px 0 24px;max-width:600px}
+.contact-card{background:#080b10;border:1px solid var(--line);border-radius:20px;padding:28px}
+.contact-card h3{font-size:22px;margin-bottom:18px}
+.contact-item{margin-bottom:15px}.contact-item strong{display:block;color:#9fc2ff}.contact-item span{color:var(--muted)}
+.socials{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.social{border:1px solid var(--line);padding:9px 14px;border-radius:999px;color:#c9d2df;font-size:13px}.social:hover{border-color:var(--blue);color:#fff}
+footer{padding:26px;text-align:center;color:#7f8793;border-top:1px solid #202938;font-size:13px}
+.whatsapp{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;font-size:28px;z-index:99;box-shadow:0 12px 35px rgba(0,0,0,.4)}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.modal-box{width:min(650px,100%);background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+.modal-box img{width:100%;max-height:430px;object-fit:cover}.modal-content{padding:22px}.close{position:absolute;right:13px;top:13px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(0,0,0,.7);color:#fff;font-size:22px;cursor:pointer}
+.modal-content p{color:var(--muted);margin:8px 0 18px}
+@media(max-width:1000px){.category-grid,.products{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(2,1fr)}.menu{display:none}.contact-grid{grid-template-columns:1fr}}
+@media(max-width:600px){section{padding:62px 0}.hero{min-height:610px}.hero-inner{padding:70px 0}.hero h1{font-size:49px}.brand strong{font-size:16px}.brand small{font-size:7px}.nav>.btn{padding:10px 13px;font-size:12px}.category-grid,.products,.process-grid{grid-template-columns:1fr}.cat{height:220px}.product-img{height:270px}.search button{padding:0 16px}.stats{gap:18px}}
+
+/* V3 — carrito, favoritos, compartir y mejor experiencia móvil */
+.cart-fab{position:fixed;right:20px;bottom:92px;width:58px;height:58px;border-radius:50%;background:#fff;color:#080b10;border:0;z-index:120;box-shadow:0 12px 35px rgba(0,0,0,.38);cursor:pointer;font-size:22px}
+.cart-count{position:absolute;right:-3px;top:-4px;background:var(--blue);color:#fff;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:900}
+.share-btn{position:fixed;left:20px;bottom:20px;width:52px;height:52px;border-radius:50%;background:var(--panel2);color:#fff;border:1px solid var(--line);z-index:120;cursor:pointer}
+.product-actions{display:flex;gap:7px;margin-top:10px}
+.product-actions button,.product-actions a{flex:1}
+.add-cart{background:var(--blue);color:#fff;border:1px solid var(--blue);padding:9px 10px;border-radius:999px;font-size:12px;font-weight:900;cursor:pointer}
+.fav{width:40px!important;flex:0 0 40px!important;background:transparent;border:1px solid var(--line);color:#fff;border-radius:50%;cursor:pointer}
+.fav.active{background:#182b4e;border-color:var(--blue)}
+.price-box{display:flex;flex-direction:column}.old-price{text-decoration:line-through;color:#727c8b;font-size:11px}.offer{color:#8fc0ff;font-size:11px;font-weight:800}
+.cart-panel{position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.72);display:none;justify-content:flex-end}
+.cart-panel.show{display:flex}
+.cart-drawer{height:100%;width:min(440px,100%);background:var(--panel);border-left:1px solid var(--line);padding:22px;overflow:auto}
+.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.cart-head button{background:none;border:0;color:#fff;font-size:27px;cursor:pointer}
+.cart-item{display:grid;grid-template-columns:62px 1fr auto;gap:11px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.cart-item img{width:62px;height:62px;object-fit:cover;border-radius:10px}.cart-item small{color:var(--muted);display:block}
+.qty{display:flex;align-items:center;gap:7px}.qty button{width:25px;height:25px;border-radius:50%;border:1px solid var(--line);background:var(--panel2);color:#fff;cursor:pointer}
+.cart-total{display:flex;justify-content:space-between;font-size:21px;font-weight:900;padding:20px 0}
+.cart-empty{text-align:center;color:var(--muted);padding:50px 10px}
+.notice{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#080b10;padding:11px 17px;border-radius:999px;font-size:13px;font-weight:800;z-index:300;transition:.25s;pointer-events:none}
+.notice.show{opacity:1;transform:translate(-50%,0)}
+.share-box{position:fixed;left:20px;bottom:82px;z-index:125;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:12px;display:none;box-shadow:var(--shadow)}
+.share-box.show{display:block}.share-box button{display:block;width:190px;margin:4px 0;padding:9px;border-radius:9px;border:1px solid var(--line);background:var(--panel2);color:#fff;cursor:pointer}
+@media(max-width:600px){.cart-fab{right:16px;bottom:86px}.share-btn{left:16px;bottom:16px}.share-box{left:16px;bottom:77px}}
+
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a class="brand" href="#inicio"><img src="logo-lumexa.png" alt="Logo Lumexa CM"><div><strong>LUMEXA CM</strong><small>IDEAS IMPRESAS CON CALIDAD</small></div></a>
+<nav class="menu"><a href="#inicio">Inicio</a><a href="#categorias">Categorías</a><a href="#productos">Productos</a><a href="#personalizados">Personalizados</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></nav>
+<a class="btn" target="_blank" href="https://wa.me/50235313275">WhatsApp</a>
+</div>
+</header>
+
+<main>
+<section class="hero" id="inicio"><div class="container hero-inner">
+<div class="tag">✨ PRODUCTOS PERSONALIZADOS AL GUSTO DEL CLIENTE</div>
+<h1>TU IDEA, TU <span>DISEÑO,</span><br>TU PRODUCTO.</h1>
+<p>En <strong>Lumexa CM</strong> convertimos tus ideas en productos personalizados para regalos, empresas, familias, eventos y ocasiones especiales.</p>
+<div class="actions"><a class="btn" href="#productos">🛍️ Ver catálogo</a><a class="btn secondary" target="_blank" href="https://wa.me/50235313275?text=Hola%20Lumexa%20CM,%20quiero%20crear%20un%20producto%20personalizado">💬 Crear mi producto</a></div>
+<div class="stats"><div class="stat"><strong>100%</strong><span>Personalizable</span></div><div class="stat"><strong>✨</strong><span>Diseños únicos</span></div><div class="stat"><strong>📲</strong><span>Atención por WhatsApp</span></div></div>
+</div></section>
+
+<section class="categories" id="categorias"><div class="container">
+<div class="heading"><div class="eyebrow">EXPLORA</div><h2>Nuestras <span>categorías</span></h2><p>Encuentra el producto ideal y personalízalo con tu propio estilo.</p></div>
+<div class="category-grid">
+<div class="cat" onclick="setFilter('camisas')"><img src="Imagenes/Camisas/Camisa1.jpg" alt="Camisas"><h3>Camisas</h3><span>Diseños personalizados</span></div>
+<div class="cat" onclick="setFilter('bebidas')"><img src="Imagenes/Tazas/Frozen1.png" alt="Tazas y bebidas"><h3>Tazas y bebidas</h3><span>Tazas, vasos y termos</span></div>
+<div class="cat" onclick="setFilter('accesorios')"><img src="Imagenes/Mousepad/Mousepad2.png" alt="Accesorios"><h3>Accesorios</h3><span>Detalles para todos</span></div>
+<div class="cat" onclick="setFilter('fotografia')"><img src="Imagenes/Laminas/Aluminio1.png" alt="Fotografía"><h3>Fotografía</h3><span>Recuerdos y decoración</span></div>
+</div></div></section>
+
+<section id="productos"><div class="container">
+<div class="heading"><div class="eyebrow">CATÁLOGO</div><h2>Productos <span>personalizados</span></h2><p>Explora nuestros productos. Si no encuentras exactamente lo que buscas, escríbenos.</p></div>
+<div class="toolbar">
+<div class="search"><input id="searchInput" oninput="filterProducts()" placeholder="🔎 Buscar tazas, camisas, termos..."><button onclick="filterProducts()">Buscar</button></div>
+<div class="filters">
+<button class="filter active" data-filter="all" onclick="setFilter('all')">Todos</button>
+<button class="filter" data-filter="camisas" onclick="setFilter('camisas')">Camisas</button>
+<button class="filter" data-filter="bebidas" onclick="setFilter('bebidas')">Tazas y bebidas</button>
+<button class="filter" data-filter="accesorios" onclick="setFilter('accesorios')">Accesorios</button>
+<button class="filter" data-filter="fotografia" onclick="setFilter('fotografia')">Fotografía</button>
+</div></div>
+<div class="products" id="productGrid">
+
+<article class="product" data-category="camisas" data-name="camisas personalizadas">
+<div class="product-img"><span class="badge">Personalizable</span><img src="Imagenes/Camisas/Camisa2.png" alt="Camisas personalizadas"></div>
+<div class="info"><h3>Camisas personalizadas</h3><p>Fotografías, nombres, frases, logos y diseños especiales.</p><div class="product-footer"><span class="price">Cotizar</span></div><div class="product-actions"><button class="add-cart" onclick="addToCart('Camisas personalizadas','Imagenes/Camisas/Camisa2.png')">＋ Agregar</button><button class="mini" onclick="openProduct('Camisas personalizadas','Imagenes/Camisas/Camisa2.png','Personaliza tu camisa con el diseño que prefieras.')">Ver</button><button class="fav" onclick="toggleFav(this)" aria-label="Favorito">♡</button></div></div>
+</article>
+
+<article class="product" data-category="accesorios" data-name="mouse pads mousepad">
+<div class="product-img"><span class="badge">Personalizable</span><img src="Imagenes/Mousepad/Mousepad2.png" alt="Mouse Pads"></div>
+<div class="info"><h3>Mouse Pads</h3><p>Personalizados con fotografías, diseños, personajes, logos y mucho más. Trabajamos con diferentes medidas para adaptarnos a tus ideas y necesidades.</p><div class="product-footer"><span class="price">Cotizar</span></div><div class="product-actions"><button class="add-cart" onclick="addToCart('Mouse Pads','Imagenes/Mousepad/Mousepad2.png')">＋ Agregar</button><button class="mini" onclick="openProduct('Mouse Pads','Imagenes/Mousepad/Mousepad2.png','Elige tu diseño y crea un mouse pad único.')">Ver</button><button class="fav" onclick="toggleFav(this)">♡</button></div></div>
+</article>
+
+<article class="product" data-category="bebidas" data-name="tazas taza">
+<div class="product-img"><span class="badge">Personalizable</span><img src="Imagenes/Tazas/Taza1.jpeg" alt="Tazas personalizadas"></div>
+<div class="info"><h3>Tazas</h3><p>Personalizadas con fotografías, nombres, frases y diseños únicos.</p><div class="product-footer"><span class="price">Cotizar</span></div><div class="product-actions"><button class="add-cart" onclick="addToCart('Tazas','Imagenes/Tazas/Taza1.jpeg')">＋ Agregar</button><button class="mini" onclick="openProduct('Tazas','Imagenes/Tazas/Taza1.jpeg','Cuéntanos tu idea y preparamos un diseño para ti.')">Ver</button><button class="fav" onclick="toggleFav(this)">♡</button></div></div>
+</article>
+
+<article class="product" data-category="bebidas" data-name="tazas frozen nevadas">
+<div class="product-img"><span class="badge">Especial</span><img src="Imagenes/Tazas/Frozen1.png" alt="Tazas Frozen Nevadas"></div>
+<div class="info"><h3>Tazas Frozen / Nevadas</h3><p>Una opción especial para regalos, parejas, familias y ocasiones especiales.</p><div class="product-footer"><span class="price">Cotizar</span></div><div class="product-actions"><button class="add-cart" onclick="addToCart('Tazas Frozen / Nevadas','Imagenes/Tazas/Frozen1.png')">＋ Agregar</button><button class="mini" onclick="openProduct('Tazas Frozen / Nevadas','Imagenes/Tazas/Frozen1.png','Pregunta por diseños y opciones disponibles.')">Ver</button><button class="fav" onclick="toggleFav(this)">♡</button></div></div>
+</article>
+
+<article class="product" data-category="bebidas" data-name="vasos">
+<div class="product-img"><span class="badge">Personalizable</span><img src="Imagenes/Vasos/Vasos1.jpeg" alt="Vasos personalizados"></div>
+<div class="info"><h3>Vasos</h3><p>Personalizados al gusto del cliente con diferentes diseños.</p><div class="product-footer"><span class="price">Cotizar</span></div><div class="product-actions"><button class="add-cart" onclick="addToCart('Vasos','Imagenes/Vasos/Vasos1.jpeg')">＋ Agregar</button><button class="mini" onclick="openProduct('Vasos','Imagenes/Vasos/Vasos1.jpeg','Personalízalo con nombre, frase, fotografía o diseño.')">Ver</button><button class="fav" onclick="toggleFav(this)">♡</button></div></div>
+</article>
+
+<article class="product" data-category="bebidas" data-name="termos">
+<div class="product-img"><span class="badge">Personalizable</span><img src="Imagenes/Termos/Termo1.png" alt="Termos personalizados"></div>
+<div class="info"><h3>Termos</h3><p>Personaliza tu termo con nombres, fotografías, logos o diseños.</p><div class="product-footer"><span class="price">Cotizar</span></div><div class="product-actions"><button class="add-cart" onclick="addToCart('Termos','Imagenes/Termos/Termo1.png')">＋ Agregar</button><button class="mini" onclick="openProduct('Termos','Imagenes/Termos/Termo1.png','Ideal para uso personal, regalos y detalles corporativos.')">Ver</button><button class="fav" onclick="toggleFav(this)">♡</button></div></div>
+</article>
+
+<article class="product" data-category="accesorios" data-name="llaveros">
+<div class="product-img"><span class="badge">Personalizable</span><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Llaveros"></div>
+<div class="info"><h3>Llaveros</h3><p>Pequeños detalles personalizados con fotografías, nombres o diseños.</p><div class="product-footer"><span class="price">Cotizar</span></div><div class="product-actions"><button class="add-cart" onclick="addToCart('Llaveros','https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80')">＋ Agregar</button><button class="mini" onclick="openProduct('Llaveros','https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80','Pregunta por modelos y opciones de personalización.')">Ver</button><button class="fav" onclick="toggleFav(this)">♡</button></div></div>
+</article>
+
+<article class="product" data-category="fotografia" data-name="laminas aluminio fotografias">
+<div class="product-img"><span class="badge">Recuerdo</span><img src="Imagenes/Laminas/Aluminio1.png" alt="Láminas de aluminio"></div>
+<div class="info"><h3>Láminas de aluminio</h3><p>Fotografías y diseños personalizados, ideales para decorar, conservar tus mejores recuerdos o sorprender con un regalo especial. Trabajamos con diferentes tamaños para adaptarnos a tus necesidades y preferencias.
+</p><div class="product-footer"><span class="price">Cotizar</span></div><div class="product-actions"><button class="add-cart" onclick="addToCart('Láminas de aluminio','Imagenes/Laminas/Aluminio1.png')">＋ Agregar</button><button class="mini" onclick="openProduct('Láminas de aluminio','Imagenes/Laminas/Aluminio1.png','Una forma especial de conservar tus fotografías y recuerdos.')">Ver</button><button class="fav" onclick="toggleFav(this)">♡</button></div></div>
+</article>
+
+</div>
+<div class="empty" id="empty">No encontramos productos con esa búsqueda. Prueba con otra palabra.</div>
+</div></section>
+
+<section class="custom" id="personalizados"><div class="container inner">
+<div class="eyebrow">DISEÑAMOS CONTIGO</div><h2>¿Tienes una <span>idea?</span></h2>
+<p>No necesitas tener un diseño terminado. Envíanos una fotografía, nombre, frase, logo o simplemente cuéntanos qué deseas y te ayudamos a convertirlo en un producto único.</p>
+<a class="btn" target="_blank" href="https://wa.me/50235313275?text=Hola%20Lumexa%20CM,%20tengo%20una%20idea%20para%20personalizar%20un%20producto">💬 Quiero personalizar un producto</a>
+</div></section>
+
+<section id="proceso"><div class="container">
+<div class="heading"><div class="eyebrow">FÁCIL Y RÁPIDO</div><h2>Así creamos tu <span>producto</span></h2><p>Un proceso sencillo para transformar tu idea en algo especial.</p></div>
+<div class="process-grid">
+<div class="step"><div class="num">1</div><h3>Cuéntanos tu idea</h3><p>Envíanos fotografía, nombre, frase, logo o referencia.</p></div>
+<div class="step"><div class="num">2</div><h3>Diseñamos</h3><p>Preparamos la propuesta de acuerdo con tus gustos.</p></div>
+<div class="step"><div class="num">3</div><h3>Confirmamos</h3><p>Revisamos contigo los detalles antes de producir.</p></div>
+<div class="step"><div class="num">4</div><h3>¡Lo hacemos realidad!</h3><p>Preparamos tu producto personalizado con cuidado.</p></div>
+</div></div></section>
+
+<section class="contact" id="contacto"><div class="container contact-grid">
+<div><div class="eyebrow">CONTACTO</div><h2>Hablemos de tu <span>próxima idea.</span></h2><p>Estamos listos para ayudarte a crear un producto único para ti, tu familia, tu empresa o una ocasión especial.</p><a class="btn" target="_blank" href="https://wa.me/50235313275?text=Hola%20Lumexa%20CM,%20quiero%20información">💬 Contactar por WhatsApp</a>
+<div class="socials"><a class="social" target="_blank" href="https://www.instagram.com/lumexacm/">Instagram</a><a class="social" target="_blank" href="https://www.facebook.com/profile.php?id=61588795802406">Facebook</a></div></div>
+<div class="contact-card"><h3>Información de contacto</h3><div class="contact-item"><strong>WhatsApp</strong><span>+502 3531 3275</span></div><div class="contact-item"><strong>Instagram</strong><span>@lumexacm</span></div><div class="contact-item"><strong>Facebook</strong><span>Lumexa CM</span></div></div>
+</div></section>
+</main>
+
+<footer>© 2026 <strong>LUMEXA CM</strong> — Ideas impresas con calidad.</footer>
+<a class="whatsapp" target="_blank" href="https://wa.me/50235313275" aria-label="WhatsApp">☎</a>
+
+
+<button class="share-btn" onclick="toggleShare()" aria-label="Compartir catálogo">↗</button>
+<div class="share-box" id="shareBox">
+<button onclick="shareCatalog()">📲 Compartir catálogo</button>
+<button onclick="copyCatalogLink()">🔗 Copiar enlace</button>
+</div>
+<button class="cart-fab" onclick="openCart()" aria-label="Abrir pedido">🛒<span class="cart-count" id="cartCount">0</span></button>
+<div class="cart-panel" id="cartPanel" onclick="closeCartOutside(event)">
+<div class="cart-drawer"><div class="cart-head"><h2>Mi pedido</h2><button onclick="closeCart()">×</button></div>
+<div id="cartItems"></div><div class="cart-total"><span>Total</span><span id="cartTotal">Q0.00</span></div>
+<button class="btn" style="width:100%" onclick="sendCartWhatsApp()">💬 Enviar pedido por WhatsApp</button>
+</div></div>
+<div class="notice" id="notice"></div>
+
+<div class="modal" id="modal" onclick="closeProduct(event)">
+<div class="modal-box">
+<button class="close" onclick="closeModal()">×</button>
+<img id="modalImg" src="" alt="">
+<div class="modal-content"><h2 id="modalTitle"></h2><p id="modalText"></p><a id="modalWa" class="btn" target="_blank">💬 Consultar por WhatsApp</a></div>
+</div></div>
+
+<script>
+const cards=[...document.querySelectorAll('.product')];
+let activeFilter='all', cart=JSON.parse(localStorage.getItem('lumexaCart')||'[]');
+
+function setFilter(filter){
+ activeFilter=filter;
+ document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b.dataset.filter===filter));
+ document.getElementById('searchInput').value=''; applyFilters();
+ document.getElementById('productos').scrollIntoView({behavior:'smooth'});
+}
+function filterProducts(){applyFilters()}
+function applyFilters(){
+ const q=document.getElementById('searchInput').value.toLowerCase().trim(); let visible=0;
+ cards.forEach(c=>{
+  const okCat=activeFilter==='all'||c.dataset.category===activeFilter;
+  const okSearch=!q||c.dataset.name.includes(q)||c.innerText.toLowerCase().includes(q);
+  c.style.display=okCat&&okSearch?'block':'none'; if(okCat&&okSearch)visible++;
+ });
+ document.getElementById('empty').style.display=visible?'none':'block';
+}
+function openProduct(title,img,text){
+ document.getElementById('modalTitle').textContent=title; document.getElementById('modalImg').src=img;
+ document.getElementById('modalText').textContent=text;
+ document.getElementById('modalWa').href='https://wa.me/50235313275?text='+encodeURIComponent('Hola Lumexa CM, quiero información sobre '+title);
+ document.getElementById('modal').classList.add('show');
+}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function closeProduct(e){if(e.target.id==='modal')closeModal()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeCart()}});
+
+function addToCart(name,img){
+ const found=cart.find(x=>x.name===name);
+ if(found) found.qty++; else cart.push({name,img,qty:1});
+ saveCart(); toast(name+' agregado al pedido');
+}
+function saveCart(){localStorage.setItem('lumexaCart',JSON.stringify(cart));renderCart()}
+function renderCart(){
+ const box=document.getElementById('cartItems'), count=cart.reduce((s,x)=>s+x.qty,0);
+ document.getElementById('cartCount').textContent=count;
+ if(!cart.length){box.innerHTML='<div class="cart-empty">Tu pedido está vacío.<br>Agrega productos desde el catálogo.</div>';document.getElementById('cartTotal').textContent='Q0.00';return}
+ box.innerHTML=cart.map((x,i)=>`<div class="cart-item"><img src="${x.img}" alt=""><div><strong>${x.name}</strong><small>Cantidad: ${x.qty}</small><div class="qty"><button onclick="changeQty(${i},-1)">−</button><span>${x.qty}</span><button onclick="changeQty(${i},1)">+</button></div></div><button class="fav" onclick="removeCart(${i})">×</button></div>`).join('');
+ document.getElementById('cartTotal').textContent='Cotizar';
+}
+function changeQty(i,n){cart[i].qty+=n;if(cart[i].qty<=0)cart.splice(i,1);saveCart()}
+function removeCart(i){cart.splice(i,1);saveCart()}
+function openCart(){document.getElementById('cartPanel').classList.add('show');renderCart()}
+function closeCart(){document.getElementById('cartPanel').classList.remove('show')}
+function closeCartOutside(e){if(e.target.id==='cartPanel')closeCart()}
+function sendCartWhatsApp(){
+ if(!cart.length){toast('Agrega al menos un producto');return}
+ const lines=cart.map(x=>`• ${x.name} x${x.qty}`).join('%0A');
+ const msg='Hola Lumexa CM, quiero realizar este pedido:%0A%0A'+lines+'%0A%0AQuedo atento a la cotización y disponibilidad.';
+ window.open('https://wa.me/50235313275?text='+msg,'_blank');
+}
+function toggleFav(btn){btn.classList.toggle('active');btn.textContent=btn.classList.contains('active')?'♥':'♡'}
+function toast(msg){const n=document.getElementById('notice');n.textContent=msg;n.classList.add('show');setTimeout(()=>n.classList.remove('show'),1800)}
+function toggleShare(){document.getElementById('shareBox').classList.toggle('show')}
+async function shareCatalog(){
+ const data={title:'Lumexa CM — Catálogo',text:'Mira el catálogo de productos personalizados de Lumexa CM.',url:location.href};
+ if(navigator.share){try{await navigator.share(data)}catch(e){}}
+ else copyCatalogLink();
+}
+async function copyCatalogLink(){
+ try{await navigator.clipboard.writeText(location.href);toast('Enlace del catálogo copiado')}
+ catch(e){toast('Copia el enlace desde la barra del navegador')}
+}
+renderCart();
+</script>
+</body>
+</html>
